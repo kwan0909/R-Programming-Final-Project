@@ -1,0 +1,1 @@
+This function convert people in different age and gender into different groups since people are in different group would need different recommendations for exercise. The recommendations for exercise includes how long they should exercise and what type of activities suit them the best. 

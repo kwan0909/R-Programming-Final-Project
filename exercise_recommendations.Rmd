@@ -19,7 +19,7 @@ recommend_exercise <- function(age, gender) {
     "male_5_18" = "For males between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
     "female_5_18" = "For females between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
     "male_65" = "For males 65 plus: At least 150 minutes of moderate intensity activity a week or 75 minutes of vigorous intensity activity.",
-    "female_65" = "For females 65 plus: "
+    "female_65" = "For females 65 plus: At least 150 minutes of moderate intensity activity a week or 75 minutes of vigorous intensity activity."
       )
   age_group <- if (age < 5) {
     paste(gender, "_5", sep = "")

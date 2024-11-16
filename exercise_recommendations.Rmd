@@ -9,9 +9,38 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-Function 1:
+Function:
 
 ```{r cars}
+recommend_exercise <- function(age, gender) {
+  exercise_recommendations <- list(
+    "male_5" = "For males under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
+    "female_5" = "For females under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
+    "male_5_18" = "For males between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
+    "female_5_18" = "For females between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
+    "male_65" = "For males 65 plus: At least 150 minutes of moderate intensity activity a week or 75 minutes of vigorous intensity activity.",
+    "female_65" = "For females 65 plus: "
+      )
+  age_group <- if (age < 5) {
+    paste(gender, "_5", sep = "")
+  } else if (age >= 5 && age <= 18) {
+    paste(gender, "_5_18", sep = "")
+  } else if (age >= 65) {
+    paste(gender, "_65", sep = "")
+  }
+
+  if (!age_group %in% names(exercise_recommendations)){
+    return("Sorry, this is not available.")
+  }
+  return(exercise_recommendations[[age_group]])
+}
+
+```
+
+## Convert age to group
+
+```{r pressure, echo=FALSE}
+#type <- tolower(type)
 type_of_activities <- function(type, activity) {
   # List of activities and their types
   activity_types <- list(
@@ -20,13 +49,6 @@ type_of_activities <- function(type, activity) {
     "vigorous_intensity_activity" = c("lifting", "running", "swimming", "aerobics")
   )
 }
-```
-
-## Convert intp to lowercase
-
-```{r pressure, echo=FALSE}
-type <- tolower(type)
-
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

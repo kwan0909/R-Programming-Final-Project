@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
-Function:
+Function & convert age into group
 
 ```{r cars}
 recommend_exercise <- function(age, gender) {
@@ -37,7 +37,7 @@ recommend_exercise <- function(age, gender) {
 
 ```
 
-## Convert age to group
+## activities and type
 
 ```{r pressure, echo=FALSE}
 #type <- tolower(type)

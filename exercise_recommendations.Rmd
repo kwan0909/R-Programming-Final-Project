@@ -1,0 +1,32 @@
+---
+title: "Exercise"
+output: html_document
+date: "2024-11-16"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+Function 1:
+
+```{r cars}
+type_of_activities <- function(type, activity) {
+  # List of activities and their types
+  activity_types <- list(
+    "physical_activity" = c("tummy_time", "jumping", "walking", "climbing"),
+    "moderate_activity" = c("biking", "hiking", "dancing", "brisk_walking"),
+    "vigorous_intensity_activity" = c("lifting", "running", "swimming", "aerobics")
+  )
+}
+```
+
+## Convert intp to lowercase
+
+```{r pressure, echo=FALSE}
+type <- tolower(type)
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

@@ -1,11 +1,13 @@
-Package: LeePackage
+Package: ExercisePackage
 Type: Package
 Title: Exercise recommendations for different ages and genders
 Version: 0.1.0
 Author: Erika Lee
 Maintainer: Erika Lee <erikalee@usf.edu>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: ExercisePackage offers functions to put individuals into different groups,
+    which are different age groups and different gender groups. The function recommend_exercise() allow individuals put in their age and gender.
+    After the function runs, it shows how long and what types of exercise are recommended according to individual's age and gender.
+    The function types_of_activity allows individuals to input an activities to see what type of activity they belong to.
 License: UCL
 Encoding: UTF-8
 LazyData: true

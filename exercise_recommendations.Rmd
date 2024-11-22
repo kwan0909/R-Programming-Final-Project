@@ -12,28 +12,40 @@ knitr::opts_chunk$set(echo = TRUE)
 Function & convert age into group
 
 ```{r cars}
+# Get recommended exercise by age and gender
 recommend_exercise <- function(age, gender) {
   exercise_recommendations <- list(
     "male_5" = "For males under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
     "female_5" = "For females under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
     "male_5_18" = "For males between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
     "female_5_18" = "For females between 5 to 18: At least 60 minutes of moderate or vigorous intensity physical activity per day.",
+    "male_19_64" = "For male between 19 to 64: At least 150 minutes of moderate a week or 75 minutes of vigorous intensity activity a week.",
+    "female_19_64" = "For female between 19 to 64: At least 150 minutes of moderate a week or 75 minutes of vigorous intensity activity a week.Vigorous intensity activity is not recommended for pregnant women and new mothers.",
     "male_65" = "For males 65 plus: At least 150 minutes of moderate intensity activity a week or 75 minutes of vigorous intensity activity.",
     "female_65" = "For females 65 plus: At least 150 minutes of moderate intensity activity a week or 75 minutes of vigorous intensity activity."
       )
+  # convert ages into different groups
   age_group <- if (age < 5) {
     paste(gender, "_5", sep = "")
   } else if (age >= 5 && age <= 18) {
     paste(gender, "_5_18", sep = "")
+  } else if (age >= 19 && age <= 64) {
+    paste(gender, "_19_64", sep = "")
   } else if (age >= 65) {
     paste(gender, "_65", sep = "")
   }
-
+  
   if (!age_group %in% names(exercise_recommendations)){
     return("Sorry, this is not available.")
   }
   return(exercise_recommendations[[age_group]])
 }
+
+# test function
+recommend_exercise(24, "female")
+recommend_exercise(8, "female")
+recommend_exercise(72, "male")
+recommend_exercise(3, "male")
 
 ```
 
@@ -41,14 +53,30 @@ recommend_exercise <- function(age, gender) {
 
 ```{r pressure, echo=FALSE}
 #type <- tolower(type)
-type_of_activities <- function(type, activity) {
+type_of_activities <- function(activity) {
   # List of activities and their types
   activity_types <- list(
-    "physical_activity" = c("tummy_time", "jumping", "walking", "climbing"),
-    "moderate_activity" = c("biking", "hiking", "dancing", "brisk_walking"),
-    "vigorous_intensity_activity" = c("lifting", "running", "swimming", "aerobics")
+    "physical activity" = c("tummy_time", "jumping", "walking", "climbing"),
+    "moderate activity" = c("biking", "hiking", "dancing", "brisk_walking"),
+    "vigorous intensity activity" = c("lifting", "running", "swimming", "aerobics")
   )
+  
+  # check which types the activity belongs to
+  for(type in names(activity_types)) {
+    if (activity %in% activity_types[[type]]){
+      return(paste(activity, "is under", type, "."))
+  }
 }
+return(paste(activity, "is not found."))
+}
+# run a few examples to test
+type_of_activities("jumping")
+type_of_activities("hiking")
+type_of_activities("volleyball")
+
+
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+

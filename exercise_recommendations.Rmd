@@ -12,8 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 Function & convert age into group
 
 ```{r cars}
+#library 
+library(stringr)
+
 # Get recommended exercise by age and gender
 recommend_exercise <- function(age, gender) {
+  gender <- str_to_lower(gender) # use of stringr
   exercise_recommendations <- list(
     "male_5" = "For males under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
     "female_5" = "For females under 5: At least 180 minutes physical activities per day, such as running, jumping, and climbing.",
